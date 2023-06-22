@@ -6,22 +6,23 @@ import PodcastDetail from "../../features/podcast/ui/views/PodcastDetail";
 import Layout from "../../features/podcast/ui/views/Layout";
 import NoMatch from "../../features/podcast/ui/views/NoMatch";
 
-
-
 const routes: RouteObject[] = [
-    {
-      path: "/",
-      element: <Layout />,
-      children: [
-        { index: true, element: <Home /> },
-         {
-          path: "/podcast/:podcastId",
-          element: <PodcastDetail />,
-        },
-         { path: "/podcast/:podcastId/episode/:chapterId", element: <PodcastChapterDetail /> },
-        { path: "*", element: <NoMatch /> },
-      ],
-    },
-  ];
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "/podcast/:podcastId",
+        element: <PodcastDetail />,
+      },
+      {
+        path: "/podcast/:podcastId/episode/:chapterId",
+        element: <PodcastChapterDetail />,
+      },
+      { path: "*", element: <NoMatch /> },
+    ],
+  },
+];
 
 export default routes;
