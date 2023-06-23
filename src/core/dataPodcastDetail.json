@@ -1,0 +1,37 @@
+{
+  "resultCount": 1,
+  "results": [
+    {
+      "wrapperType": "track",
+      "kind": "podcast",
+      "collectionId": 1574029840,
+      "trackId": 1574029840,
+      "artistName": "Friday Night Karaoke",
+      "collectionName": "Friday Night Karaoke",
+      "trackName": "Friday Night Karaoke",
+      "collectionCensoredName": "Friday Night Karaoke",
+      "trackCensoredName": "Friday Night Karaoke",
+      "collectionViewUrl": "https://podcasts.apple.com/us/podcast/friday-night-karaoke/id1574029840?uo=4",
+      "feedUrl": "https://feeds.megaphone.fm/fridaynightkaraoke",
+      "trackViewUrl": "https://podcasts.apple.com/us/podcast/friday-night-karaoke/id1574029840?uo=4",
+      "artworkUrl30": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/5b/88/a1/5b88a186-ce6a-5268-cc49-8e896c737729/mza_7354436562524572096.jpg/30x30bb.jpg",
+      "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/5b/88/a1/5b88a186-ce6a-5268-cc49-8e896c737729/mza_7354436562524572096.jpg/60x60bb.jpg",
+      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/5b/88/a1/5b88a186-ce6a-5268-cc49-8e896c737729/mza_7354436562524572096.jpg/100x100bb.jpg",
+      "collectionPrice": 0.0,
+      "trackPrice": 0.0,
+      "collectionHdPrice": 0,
+      "releaseDate": "2023-05-16T08:44:00Z",
+      "collectionExplicitness": "notExplicit",
+      "trackExplicitness": "explicit",
+      "trackCount": 48,
+      "trackTimeMillis": 4442,
+      "country": "USA",
+      "currency": "USD",
+      "primaryGenreName": "Music",
+      "contentAdvisoryRating": "Explicit",
+      "artworkUrl600": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/5b/88/a1/5b88a186-ce6a-5268-cc49-8e896c737729/mza_7354436562524572096.jpg/600x600bb.jpg",
+      "genreIds": ["1310", "26", "1512", "1517"],
+      "genres": ["Music", "Podcasts", "Health & Fitness", "Mental Health"]
+    }
+  ]
+}

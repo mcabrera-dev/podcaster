@@ -8,7 +8,6 @@ export default function App() {
   return (
     <main>
       <div className="title">Podcaster</div>
-
       {element}
     </main>
   );
