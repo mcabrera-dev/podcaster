@@ -1,10 +1,10 @@
 import React from "react";
 import { RouteObject } from "react-router-dom";
-import Home from "../../features/podcast/ui/views/Home";
-import PodcastChapterDetail from "../../features/podcast/ui/views/PodcastChapterDetail";
-import PodcastDetail from "../../features/podcast/ui/views/PodcastDetail";
-import Layout from "../../features/podcast/ui/views/Layout";
-import NoMatch from "../../features/podcast/ui/views/NoMatch";
+import Home from "../../ui/views/Home";
+import PodcastChapterDetail from "../../ui/views/PodcastChapterDetail";
+import PodcastDetail from "../../ui/views/PodcastDetail";
+import Layout from "../../ui/views/Layout";
+import NoMatch from "../../ui/views/NoMatch";
 
 const routes: RouteObject[] = [
   {
