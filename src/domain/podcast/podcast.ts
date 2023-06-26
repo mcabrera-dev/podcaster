@@ -17,3 +17,11 @@ export interface Entry {
     author: string
     summary: string
 }
+
+export interface PodcastDetail {
+    id: number,
+    artwork: string,
+    name: string,
+    feedUrl: string,
+    artistName: string
+}
