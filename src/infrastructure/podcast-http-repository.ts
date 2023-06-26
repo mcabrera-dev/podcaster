@@ -1,12 +1,12 @@
 import { injectable } from "inversify";
 import { PodcastRepository } from "../domain/podcast/podcast-repository";
-import { PodcastListDTO } from "../domain/podcast/podcast-dto";
-import { PodcastList } from "../domain/podcast/podcast";
-import { DtoToPodcastListTransform } from "./dto-to-vtv-form.transform";
+import { PodcastDetailDTO, PodcastListDTO } from "../domain/podcast/podcast-dto";
+import { PodcastDetail, PodcastList } from "../domain/podcast/podcast";
+import { DtoToPodcastListTransform } from "./dto-to-podcast-list.transform";
+import { DtoToPodcastDetailTransform } from "./dto-to-podcast-detail.transform";
 
 
-//const CORS_PROXY = "https://cors.io/?";
-//const CORS_PROXY = "https://crossorigin.me/";
+const CORS_PROXY_RAW = "https://api.allorigins.win/raw?";
 const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 
 
@@ -27,7 +27,18 @@ export class PodcastHttpRepository implements PodcastRepository {
 
   }
 
-  findById(): Promise<PodcastList> {
-    throw new Error("Method not implemented.");
+  async findById(id: string): Promise<PodcastDetail> {
+    const dtoToPodcastDetailTransform: DtoToPodcastDetailTransform = new DtoToPodcastDetailTransform()
+    console.log("findById");
+
+    const response = await fetch(`${CORS_PROXY_RAW}url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}`)}`)
+    const jsonData = await response.json()
+
+    console.log('jsonData', jsonData)
+
+
+    const podcastDetailDTO: PodcastDetailDTO = jsonData.results[0]
+
+    return dtoToPodcastDetailTransform.transform(podcastDetailDTO)
   }
 }

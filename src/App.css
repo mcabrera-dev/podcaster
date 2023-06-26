@@ -14,10 +14,13 @@
 .title {
   color: var(--pc-sky-blue);
   font-weight: bold;
-  font-size: larger;
+  font-size: x-large;
   padding: 16px;
 }
 
+.main {
+  padding: 0 40px;
+}
 
 .home {
 
