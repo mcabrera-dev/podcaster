@@ -1,6 +1,6 @@
-import { PodcastListDTO } from "./podcast-dto";
+import { PodcastList } from "./podcast";
 
 export interface PodcastRepository {
-  getAll(): Promise<PodcastListDTO>;
-  findById(): Promise<PodcastListDTO>;
+  getAll(): Promise<PodcastList>;
+  findById(): Promise<PodcastList>;
 }

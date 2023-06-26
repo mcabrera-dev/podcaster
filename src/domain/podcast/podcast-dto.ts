@@ -1,131 +1,164 @@
-export interface Data {
-  feed: PodcastListDTO;
+export interface Root {
+  feed: PodcastListDTO
 }
 
 export interface PodcastListDTO {
-  author: AuthorDTO;
-  entry: Entry[];
-  updated: LabelDTO;
-  rights: LabelDTO;
-  title: LabelDTO;
-  icon: LabelDTO;
-  link: Link[];
-  id: LabelDTO;
+  author: Author
+  entry: EntryDto[]
+  updated: Updated
+  rights: Rights2
+  title: Title2
+  icon: Icon
+  link: Link2[]
+  id: Id2
 }
 
-export interface AuthorDTO {
-  name: LabelDTO;
-  uri: LabelDTO;
+export interface Author {
+  name: Name
+  uri: Uri
 }
 
-export interface LabelDTO {
-  label: string;
+export interface Name {
+  label: string
 }
 
-export interface Entry {
-  "im:name": LabelDTO;
-  "im:image": IMImage[];
-  summary: LabelDTO;
-  "im:price": IMPrice;
-  "im:contentType": IMContentType;
-  rights?: LabelDTO;
-  title: LabelDTO;
-  link: Link;
-  id: ID;
-  "im:artist": IMArtist;
-  category: Category;
-  "im:releaseDate": IMReleaseDate;
+export interface Uri {
+  label: string
 }
 
-export interface Category {
-  attributes: CategoryAttributes;
+export interface EntryDto {
+  "im:name": ImName
+  "im:image": ImImage[]
+  summary: Summary
+  "im:price": ImPrice
+  "im:contentType": ImContentType
+  rights?: Rights
+  title: Title
+  link: Link
+  id: Id
+  "im:artist": ImArtist
+  category: Category
+  "im:releaseDate": ImReleaseDate
 }
 
-export interface CategoryAttributes {
-  "im:id": string;
-  term: string;
-  scheme: string;
-  label: string;
+export interface ImName {
+  label: string
 }
 
-export interface ID {
-  label: string;
-  attributes: IDAttributes;
+export interface ImImage {
+  label: string
+  attributes: Attributes
 }
 
-export interface IDAttributes {
-  "im:id": string;
+export interface Attributes {
+  height: string
 }
 
-export interface IMArtist {
-  label: string;
-  attributes?: IMArtistAttributes;
+export interface Summary {
+  label: string
 }
 
-export interface IMArtistAttributes {
-  href: string;
+export interface ImPrice {
+  label: string
+  attributes: Attributes2
 }
 
-export interface IMContentType {
-  attributes: IMContentTypeAttributes;
+export interface Attributes2 {
+  amount: string
+  currency: string
 }
 
-export interface IMContentTypeAttributes {
-  term: FluffyLabel;
-  label: FluffyLabel;
+export interface ImContentType {
+  attributes: Attributes3
 }
 
-export enum FluffyLabel {
-  Podcast = "Podcast",
+export interface Attributes3 {
+  term: string
+  label: string
 }
 
-export interface IMImage {
-  label: string;
-  attributes: IMImageAttributes;
+export interface Rights {
+  label: string
 }
 
-export interface IMImageAttributes {
-  height: string;
-}
-
-export interface IMPrice {
-  label: IMPriceLabel;
-  attributes: IMPriceAttributes;
-}
-
-export interface IMPriceAttributes {
-  amount: string;
-  currency: Currency;
-}
-
-export enum Currency {
-  Usd = "USD",
-}
-
-export enum IMPriceLabel {
-  Get = "Get",
-}
-
-export interface IMReleaseDate {
-  label: string;
-  attributes: LabelDTO;
+export interface Title {
+  label: string
 }
 
 export interface Link {
-  attributes: LinkAttributes;
+  attributes: Attributes4
 }
 
-export interface LinkAttributes {
-  rel: Rel;
-  type?: Type;
-  href: string;
+export interface Attributes4 {
+  rel: string
+  type: string
+  href: string
 }
 
-export enum Rel {
-  Alternate = "alternate",
-  Self = "self",
+export interface Id {
+  label: string
+  attributes: Attributes5
 }
 
-export enum Type {
-  TextHTML = "text/html",
+export interface Attributes5 {
+  "im:id": string
+}
+
+export interface ImArtist {
+  label: string
+  attributes?: Attributes6
+}
+
+export interface Attributes6 {
+  href: string
+}
+
+export interface Category {
+  attributes: Attributes7
+}
+
+export interface Attributes7 {
+  "im:id": string
+  term: string
+  scheme: string
+  label: string
+}
+
+export interface ImReleaseDate {
+  label: string
+  attributes: Attributes8
+}
+
+export interface Attributes8 {
+  label: string
+}
+
+export interface Updated {
+  label: string
+}
+
+export interface Rights2 {
+  label: string
+}
+
+export interface Title2 {
+  label: string
+}
+
+export interface Icon {
+  label: string
+}
+
+export interface Link2 {
+  attributes: Attributes9
+}
+
+export interface Attributes9 {
+  rel: string
+  type?: string
+  href: string
+}
+
+export interface Id2 {
+  label: string
 }
