@@ -10,28 +10,29 @@ import { LoggerLink } from '../../domain/runner/logger-link';
 import { Runner } from '../../domain/runner/runner';
 import { Logger } from '../../domain/use-cases/logger';
 import { ConsoleLogger } from '../../infrastructure/console-logger';
+import { PodcastHttpRepository } from '../../infrastructure/podcast-http-repository';
 
 
 export const container = new Container();
 container.bind<GetPodcastListQry>(TYPES.GET_ALL_PODCAST_QRY).to(GetPodcastListQry).inSingletonScope();
 container.bind<StateManager>(TYPES.STATE_MANAGER).to(ReactStateManager).inSingletonScope();
-container.bind<PodcastRepository>(TYPES.PODCAST_REPOSITORY).to(PodcastLocalRepository).inSingletonScope();
+//container.bind<PodcastRepository>(TYPES.PODCAST_REPOSITORY).to(PodcastLocalRepository).inSingletonScope();
+container.bind<PodcastRepository>(TYPES.PODCAST_REPOSITORY).to(PodcastHttpRepository).inSingletonScope();
 container.bind<Window>(TYPES.WINDOW).toConstantValue(window)
-  container
-      .bind<Logger>(TYPES.LOGGER)
-      .to(ConsoleLogger)
-      .inSingletonScope()
+container
+  .bind<Logger>(TYPES.LOGGER)
+  .to(ConsoleLogger)
+  .inSingletonScope()
 
-    container
-      .bind<Runner>(TYPES.RUNNER)
-      .to(Runner)
-      .inSingletonScope()
-    container
-      .bind<ExecutorLink>(TYPES.EXECUTOR_LINK)
-      .to(ExecutorLink)
-      .inSingletonScope()
-    container
-      .bind<LoggerLink>(TYPES.LOGGER_LINK)
-      .to(LoggerLink)
-      .inSingletonScope()
-   
+container
+  .bind<Runner>(TYPES.RUNNER)
+  .to(Runner)
+  .inSingletonScope()
+container
+  .bind<ExecutorLink>(TYPES.EXECUTOR_LINK)
+  .to(ExecutorLink)
+  .inSingletonScope()
+container
+  .bind<LoggerLink>(TYPES.LOGGER_LINK)
+  .to(LoggerLink)
+  .inSingletonScope()
