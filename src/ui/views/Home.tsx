@@ -27,7 +27,7 @@ function HomeView() {
   };
 
 
-  return <div className="homeContainer">HOME WORKS!
+  return <div className="home">HOME WORKS!
 
     <input
       type="text"
@@ -37,9 +37,12 @@ function HomeView() {
       value={filter}
     />
 
-    {data && data.entry.map(e => (
-      <Podcast podcast={e} />
-    ))}
+    <div className="podcast-list-container">
+      {data && data.entry.map(e => (
+        <Podcast podcast={e} />
+      ))}
+    </div>
+
   </div>;
 }
 

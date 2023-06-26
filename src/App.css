@@ -1,3 +1,31 @@
+:root {
+  --pc-grey-0: #353c47;
+  --pc-grey-1: #7a7f86;
+  --pc-sky-blue: #1e6ec8;
+  --pc-white: #fff;
+
+  --pc-content-primary: var(--pc-grey-0);
+  --pc-content-secondary: var(--pc-grey-1);
+  --pc-background-0: var(--pc-white);
+}
+
+
+
 .title {
-  color: aqua;
+  color: var(--pc-sky-blue);
+  font-weight: bold;
+  font-size: larger;
+  padding: 16px;
+}
+
+
+.home {
+
+  .podcast-list-container {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+  }
+
 }

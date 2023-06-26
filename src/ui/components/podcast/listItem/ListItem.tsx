@@ -19,10 +19,10 @@ const Podcast = (props: Props) => (
                 <img src={props.podcast.img} className="rounded" />
             </div>
             <div className="card-content">
-                <div className="card-header">{props.podcast.name}</div>
                 <div className="card-meta">
                     <span>Author: {props.podcast.author}</span>
                 </div>
+                <div className="card-header">{props.podcast.name.toLocaleUpperCase()}</div>
             </div>
         </div>
     </Link>

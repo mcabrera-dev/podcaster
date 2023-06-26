@@ -1,10 +1,11 @@
 .image-cropper {
-    top: 60px;
+    top: 55px;
     width: 100px;
     height: 100px;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+    box-shadow: 1px 2px 8px 1px #353c471a;
 }
 
 img {
@@ -24,20 +25,24 @@ img {
 
 .card-content {
     width: 100%;
-    padding: 20px;
-    height: 100px;
+    min-height: 130px;
     display: flex;
     flex-direction: column-reverse;
     box-shadow: 1px 2px 8px 1px #353c471a;
     border-radius: 4px;
+    gap: 12px;
+    background-color: var(--pc-background-0);
+
 }
 
 .card-header,
 .card-meta {
+
     text-align: center;
 }
 
 .card-meta {
+    padding-bottom: 10px;
     text-transform: capitalize;
     color: #7a7f86;
     text-decoration: none
@@ -47,9 +52,22 @@ img {
     text-transform: capitalize;
     font-weight: bold;
     color: black;
-    text-decoration: none
+    text-decoration: none;
+    max-height: 16px;
+    overflow: hidden;
+    text-overflow: clip;
+    padding: 0 8px;
+    word-break: break-all;
 }
 
 a {
     text-decoration: none;
+    transition: all ease-in 0.25s;
+}
+
+a:hover {
+    transform: translate(-20px, -40px) scale(1.2);
+
+    z-index: 99;
+
 }
