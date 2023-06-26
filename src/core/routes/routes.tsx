@@ -2,7 +2,7 @@ import React from "react";
 import { RouteObject } from "react-router-dom";
 import Home from "../../ui/views/Home";
 import PodcastChapterDetail from "../../ui/views/PodcastChapterDetail";
-import PodcastDetail from "../../ui/views/PodcastDetail";
+import PodcastDetail from "../../ui/views/podcast-detail/PodcastDetail";
 import Layout from "../../ui/views/Layout";
 import NoMatch from "../../ui/views/NoMatch";
 

@@ -3,17 +3,13 @@ import { TYPES } from "../../core/types/types";
 import type { PodcastRepository } from "../../domain/podcast/podcast-repository";
 import { Query } from "../../domain/use-cases/query";
 import type { StateManager } from "../state-manager";
-import { PodcastList } from "../../domain/podcast/podcast";
+import { PodcastDetail, PodcastList } from "../../domain/podcast/podcast";
 import { DtoToPodcastListTransform } from "../../infrastructure/dto-to-podcast-list.transform";
 
-decorate(injectable(), Query);
 
 
 @injectable()
-export class GetPodcastListQry extends Query<Promise<PodcastList>> {
-
-  @inject(TYPES.STATE_MANAGER)
-  private stateManager!: StateManager
+export class GetPodcastDetailtQry extends Query<Promise<PodcastDetail>, string> {
 
   @inject(TYPES.PODCAST_REPOSITORY)
   private podcastRepository!: PodcastRepository
@@ -25,8 +21,8 @@ export class GetPodcastListQry extends Query<Promise<PodcastList>> {
     super();
   }
 
-  async internalExecute(): Promise<PodcastList> {
-    const podcastList = await this.podcastRepository.getAll()
+  async internalExecute(id: string): Promise<PodcastDetail> {
+    const podcastList = await this.podcastRepository.findById(id)
     return podcastList
     //return this.stateManager.state.feed!;
   }
