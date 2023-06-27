@@ -8,7 +8,10 @@
       "dom.iterable",
       "es6"
     ],
-    "types": ["reflect-metadata", "node"],
+    "types": [
+      "reflect-metadata",
+      "node"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -21,7 +24,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react",
+    "paths": {
+      "assert": [
+        "./assert.ts",
+      ],
+      "buffer": [
+        "./node_modules/safe-buffer"
+      ]
+    }
   },
   "include": [
     "src"

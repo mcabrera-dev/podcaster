@@ -3,6 +3,7 @@ import './App.css'
 
 
 import routes from "./core/routes/routes";
+import React from "react";
 
 export default function App() {
   let element = useRoutes(routes);
