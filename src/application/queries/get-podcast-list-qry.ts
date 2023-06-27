@@ -4,10 +4,8 @@ import type { PodcastRepository } from "../../domain/podcast/podcast-repository"
 import { Query } from "../../domain/use-cases/query";
 import type { StateManager } from "../state-manager";
 import { PodcastList } from "../../domain/podcast/podcast";
-import { DtoToPodcastListTransform } from "../../infrastructure/dto-to-podcast-list.transform";
 
 decorate(injectable(), Query);
-
 
 @injectable()
 export class GetPodcastListQry extends Query<Promise<PodcastList>> {
@@ -18,8 +16,6 @@ export class GetPodcastListQry extends Query<Promise<PodcastList>> {
   @inject(TYPES.PODCAST_REPOSITORY)
   private podcastRepository!: PodcastRepository
 
-  private readonly dtoToVtvFormTransform: DtoToPodcastListTransform = new DtoToPodcastListTransform()
-
   constructor(
   ) {
     super();
@@ -27,7 +23,7 @@ export class GetPodcastListQry extends Query<Promise<PodcastList>> {
 
   async internalExecute(): Promise<PodcastList> {
     const podcastList = await this.podcastRepository.getAll()
+    this.stateManager.patch({ podcastList })
     return podcastList
-    //return this.stateManager.state.feed!;
   }
 }
