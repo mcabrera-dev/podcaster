@@ -26,3 +26,12 @@ export interface PodcastDetail {
     artistName: string,
     description?: string
 }
+
+export interface PodcastEpisode {
+    id: string,
+    title: string,
+    date: string,
+    duration: string,
+    content: string,
+    url: string
+}

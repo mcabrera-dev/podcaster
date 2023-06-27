@@ -1,9 +1,10 @@
 import { injectable } from "inversify";
 import { PodcastRepository } from "../domain/podcast/podcast-repository";
 import { PodcastDetailDTO, PodcastListDTO } from "../domain/podcast/podcast-dto";
-import { PodcastDetail, PodcastList } from "../domain/podcast/podcast";
+import { PodcastDetail, PodcastEpisode, PodcastList } from "../domain/podcast/podcast";
 import { DtoToPodcastListTransform } from "./dto-to-podcast-list.transform";
 import { DtoToPodcastDetailTransform } from "./dto-to-podcast-detail.transform";
+import Parser from "rss-parser";
 
 
 const CORS_PROXY_RAW = "https://api.allorigins.win/raw?";
@@ -40,5 +41,23 @@ export class PodcastHttpRepository implements PodcastRepository {
     const podcastDetailDTO: PodcastDetailDTO = jsonData.results[0]
 
     return dtoToPodcastDetailTransform.transform(podcastDetailDTO)
+  }
+
+
+  async getEpisodes(feedUrl: string): Promise<PodcastEpisode[]> {
+    const parser = new Parser();
+    let episodes: PodcastEpisode[] = [];
+    const feed = await parser.parseURL(`${CORS_PROXY}${feedUrl}`);
+    feed.items.forEach(episode => {
+      episodes.push({
+        id: episode.guid || '',
+        title: episode.title || '',
+        date: episode.pubDate || '',
+        duration: episode.itunes.duration || '',
+        content: episode.content || '',
+        url: episode.enclosure?.url || ''
+      });
+    });
+    return episodes;
   }
 }
