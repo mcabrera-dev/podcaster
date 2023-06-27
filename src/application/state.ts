@@ -1,5 +1,6 @@
-import { PodcastListDTO } from "../domain/podcast/podcast-dto";
+import { Entry, PodcastList } from "../domain/podcast/podcast";
 
 export class State {
-  feed: PodcastListDTO | undefined;
+  podcastList: PodcastList | undefined;
+  selected: Entry | undefined
 }

@@ -6,6 +6,7 @@ import './list-item.css'
 
 type Props = {
     podcast: Entry;
+    onNavigate: (selected: Entry) => void
 };
 
 const Podcast = (props: Props) => (
@@ -13,6 +14,7 @@ const Podcast = (props: Props) => (
         to={{
             pathname: `/podcast/${props.podcast.id}`,
         }}
+        onClick={() => props.onNavigate(props.podcast)}
     >
         <div className="card-wrapper">
             <div className="image-cropper">

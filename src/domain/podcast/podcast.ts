@@ -23,5 +23,6 @@ export interface PodcastDetail {
     artwork: string,
     name: string,
     feedUrl: string,
-    artistName: string
+    artistName: string,
+    description?: string
 }

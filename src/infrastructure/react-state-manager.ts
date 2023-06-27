@@ -20,13 +20,7 @@ export class ReactStateManager implements StateManager {
   }
 
   patch(state: Partial<State>): void {
-    type Keys = keyof State
-    Object.entries(state).forEach(([key, value]) => {
-      const accessor = key as Keys
-      if (value !== undefined) {
-        this.state[accessor] = value
-      }
-    })
+    this.state = { ...this.state, ...state }
   }
 
   notifyAll() {
