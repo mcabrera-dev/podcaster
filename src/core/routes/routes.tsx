@@ -15,10 +15,12 @@ const routes: RouteObject[] = [
       {
         path: "/podcast/:podcastId",
         element: <PodcastDetail />,
-      },
-      {
-        path: "/podcast/:podcastId/episode/:chapterId",
-        element: <PodcastChapterDetail />,
+        children: [
+          {
+            path: "/podcast/:podcastId/episode/:chapterId",
+            element: <PodcastDetail />,
+          }
+        ]
       },
       { path: "*", element: <NoMatch /> },
     ],
