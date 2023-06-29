@@ -31,7 +31,7 @@ export interface PodcastEpisode {
     id: string,
     title: string,
     date: string,
-    duration: string,
+    duration: number,
     content: string,
     url: string
 }

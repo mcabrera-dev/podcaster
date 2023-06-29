@@ -6,8 +6,8 @@ export interface PodcastListDTO {
   author: Author
   entry: EntryDto[]
   updated: Updated
-  rights: Rights2
-  title: Title2
+  rights: Rights
+  title: Title
   icon: Icon
   link: Link2[]
   id: Id2
@@ -137,14 +137,6 @@ export interface Updated {
   label: string
 }
 
-export interface Rights2 {
-  label: string
-}
-
-export interface Title2 {
-  label: string
-}
-
 export interface Icon {
   label: string
 }
@@ -196,4 +188,26 @@ export interface PodcastDetailDTO {
   artworkUrl600: string
   genreIds: string[]
   genres: string[]
+}
+
+export interface PodcastEpisodeDTO {
+  creator: string
+  title: string
+  link: string
+  pubDate: string
+  enclosure: {
+    url: string
+    length: string
+    type: string
+  }
+  "dc:creator": string
+  content: string
+  contentSnippet: string
+  guid: string
+  isoDate: string
+  itunes: {
+    explicit: string
+    duration: number
+    image: any
+  }
 }
