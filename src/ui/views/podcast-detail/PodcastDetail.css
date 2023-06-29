@@ -6,3 +6,17 @@
 
 
 }
+
+.podcast-chapters-list {
+    width: calc(100% - 360px);
+}
+
+.player-container {
+    box-shadow: var(--pc-box-shadow);
+    padding: 20px;
+}
+
+.player {
+    margin-top: 20px;
+    width: 100%;
+}
