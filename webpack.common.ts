@@ -1,6 +1,10 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+const cleanWebpackPluginConfig = new CleanWebpackPlugin()
+
 module.exports = {
     mode: "development",
     entry: "/src/index.tsx", // main js
@@ -29,10 +33,6 @@ module.exports = {
             },
         ],
     },
-    devServer: {
-        port: 9001,
-        historyApiFallback: true
-    },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
@@ -40,7 +40,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./public/index.html", // base html
         }),
-        new NodePolyfillPlugin()
+        new NodePolyfillPlugin(),
+        cleanWebpackPluginConfig
     ],
     ignoreWarnings: [/Failed to parse source map/],
 };
