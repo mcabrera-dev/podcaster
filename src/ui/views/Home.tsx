@@ -2,26 +2,25 @@ import "../../core/wdyr/wdyr";
 import { TYPES } from "../../core/types/types";
 import { GetPodcastListQry } from "../../application/queries/get-podcast-list-qry";
 import { useInjection } from "../../core/ioc/ioc.react";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState } from "react";
 import { Entry, PodcastList } from "../../domain/podcast/podcast";
 import { useQuery } from "react-query";
 import Podcast from "../components/podcast/listItem/ListItem";
 import InputField from "../components/filter/Filter";
 import { StateManager } from "../../application/state-manager";
+import React from "react";
 
 function HomeView() {
 
   const getPodcastListQry = useInjection<GetPodcastListQry>(TYPES.GET_ALL_PODCAST_QRY)
   const stateManager = useInjection<StateManager>(TYPES.STATE_MANAGER)
-
   const [filter, setFilter] = useState('');
-  //const [error, setError] = useState(false);
-  // const [data, setData] = useState<PodcastList>();
-
-  const { isLoading, isError, data, error } = useQuery<PodcastList>('todos', () => getPodcastListQry.execute(),
-    {
-      select: (podcastList) => { return { ...podcastList, entry: podcastList.entry.filter((entry) => entry.name.toLowerCase().includes(filter) || entry.author.toLowerCase().includes(filter)) } },
-    })
+  const { data } = useQuery<PodcastList>({
+    queryKey: ['podcastList'],
+    queryFn: () => getPodcastListQry.execute(),
+    staleTime: 1000 * 60 * 60 * 24, //caché for 1 day
+    select: (podcastList) => { return { ...podcastList, entry: podcastList.entry.filter((entry) => entry.name.toLowerCase().includes(filter) || entry.author.toLowerCase().includes(filter)) } },
+  })
 
   const onChangeFilter = (e: any) => {
     setFilter(e.target.value)

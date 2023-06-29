@@ -22,8 +22,8 @@ export class GetPodcastEpisodesQry extends Query<Promise<PodcastEpisode[]>, stri
   }
 
   async internalExecute(id: string): Promise<PodcastEpisode[]> {
-    const podcastEpisodeList = await this.podcastRepository.findById(id)
-    return []
+    const podcastEpisodeList = await this.podcastRepository.getEpisodes(id)
+    return podcastEpisodeList
     //return this.stateManager.state.feed!;
   }
 }

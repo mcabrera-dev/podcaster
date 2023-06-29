@@ -24,6 +24,7 @@ export class GetPodcastListQry extends Query<Promise<PodcastList>> {
   async internalExecute(): Promise<PodcastList> {
     const podcastList = await this.podcastRepository.getAll()
     this.stateManager.patch({ podcastList })
+
     return podcastList
   }
 }

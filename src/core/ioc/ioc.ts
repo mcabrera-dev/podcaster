@@ -12,12 +12,14 @@ import { Logger } from '../../domain/use-cases/logger';
 import { ConsoleLogger } from '../../infrastructure/console-logger';
 import { PodcastHttpRepository } from '../../infrastructure/podcast-http-repository';
 import { GetPodcastDetailtQry } from '../../application/queries/get-podcast-detail-qry';
+import { GetPodcastEpisodesQry } from '../../application/queries/get-podcast-episodes-qry';
 
 
 export const container = new Container();
 container.bind<StateManager>(TYPES.STATE_MANAGER).to(ReactStateManager).inSingletonScope();
 container.bind<GetPodcastListQry>(TYPES.GET_ALL_PODCAST_QRY).to(GetPodcastListQry).inSingletonScope();
 container.bind<GetPodcastDetailtQry>(TYPES.GET_PODCAST_DETAIL_QRY).to(GetPodcastDetailtQry).inSingletonScope();
+container.bind<GetPodcastEpisodesQry>(TYPES.GET_PODCAST_EPISODES_QRY).to(GetPodcastEpisodesQry).inSingletonScope();
 
 //container.bind<PodcastRepository>(TYPES.PODCAST_REPOSITORY).to(PodcastLocalRepository).inSingletonScope();
 container.bind<PodcastRepository>(TYPES.PODCAST_REPOSITORY).to(PodcastHttpRepository).inSingletonScope();

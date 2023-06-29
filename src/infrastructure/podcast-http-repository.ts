@@ -1,10 +1,11 @@
 import { injectable } from "inversify";
 import { PodcastRepository } from "../domain/podcast/podcast-repository";
-import { PodcastDetailDTO, PodcastListDTO } from "../domain/podcast/podcast-dto";
+import { PodcastEpisodeDTO, PodcastDetailDTO, PodcastListDTO } from "../domain/podcast/podcast-dto";
 import { PodcastDetail, PodcastEpisode, PodcastList } from "../domain/podcast/podcast";
 import { DtoToPodcastListTransform } from "./dto-to-podcast-list.transform";
 import { DtoToPodcastDetailTransform } from "./dto-to-podcast-detail.transform";
 import Parser from "rss-parser";
+import { DtoToPodcastEpisodeTransform } from "./dto-to-podcast-episode.transform";
 
 
 const CORS_PROXY_RAW = "https://api.allorigins.win/raw?";
@@ -46,18 +47,15 @@ export class PodcastHttpRepository implements PodcastRepository {
 
   async getEpisodes(feedUrl: string): Promise<PodcastEpisode[]> {
     const parser = new Parser();
+    const dtoToPodcastEpisodeTransform: DtoToPodcastEpisodeTransform = new DtoToPodcastEpisodeTransform()
     let episodes: PodcastEpisode[] = [];
     const feed = await parser.parseURL(`${CORS_PROXY}${feedUrl}`);
-    feed.items.forEach(episode => {
-      episodes.push({
-        id: episode.guid || '',
-        title: episode.title || '',
-        date: episode.pubDate || '',
-        duration: episode.itunes.duration || '',
-        content: episode.content || '',
-        url: episode.enclosure?.url || ''
-      });
+    console.log('rss-feed', feed)
+    feed.items.forEach((episode: PodcastEpisodeDTO) => {
+      episodes.push(dtoToPodcastEpisodeTransform.transform(episode));
     });
+
+    console.log('getEpisodes', episodes)
     return episodes;
   }
 }
