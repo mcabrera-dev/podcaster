@@ -1,9 +1,9 @@
+import "reflect-metadata";
 import { Container } from 'inversify';
 import { GetPodcastListQry } from '../../application/queries/get-podcast-list-qry';
 import { TYPES } from '../types/types';
 import { StateManager } from '../../application/state-manager';
 import { ReactStateManager } from '../../infrastructure/react-state-manager';
-import { PodcastLocalRepository } from '../../infrastructure/podcast-local-repository';
 import { PodcastRepository } from '../../domain/podcast/podcast-repository';
 import { ExecutorLink } from '../../domain/runner/executor-link';
 import { LoggerLink } from '../../domain/runner/logger-link';
