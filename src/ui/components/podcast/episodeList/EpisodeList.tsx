@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Entry, PodcastEpisode } from "../../../../domain/podcast/podcast";
+import { PodcastEpisode } from "../../../../domain/podcast/podcast";
 import './EpisodeList.css'
-import { StateManager } from "../../../../application/state-manager";
-import { TYPES } from "../../../../core/types/types";
-import { useInjection } from "../../../../core/ioc/ioc.react";
 
 
 type Props = {
@@ -13,13 +10,11 @@ type Props = {
 };
 
 const secondsToString = (duration: number) => {
-    // Hours, minutes and seconds
 
     if (isNaN(duration)) {
         return duration
     }
 
-    console.log(duration)
     const hrs = ~~(duration / 3600);
     const mins = ~~((duration % 3600) / 60);
     const secs = ~~duration % 60;
@@ -47,7 +42,6 @@ const dateParser = (dateString: string) => {
 
 const EpisodeList = (props: Props) => {
 
-    console.log('EpisodeList', props)
     return (
         <div className="table-container">
             <div className="table-title">

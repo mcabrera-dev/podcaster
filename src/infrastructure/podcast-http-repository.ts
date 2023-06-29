@@ -16,7 +16,6 @@ const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
 export class PodcastHttpRepository implements PodcastRepository {
   async getAll(): Promise<PodcastList> {
     const dtoToPodcastListTransform: DtoToPodcastListTransform = new DtoToPodcastListTransform()
-    console.log("GET_ALLL_HTTP");
 
     const response = await fetch(`${CORS_PROXY}https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json`)
     const jsonData = await response.json();
@@ -31,13 +30,9 @@ export class PodcastHttpRepository implements PodcastRepository {
 
   async findById(id: string): Promise<PodcastDetail> {
     const dtoToPodcastDetailTransform: DtoToPodcastDetailTransform = new DtoToPodcastDetailTransform()
-    console.log("findById");
 
     const response = await fetch(`${CORS_PROXY_RAW}url=${encodeURIComponent(`https://itunes.apple.com/lookup?id=${id}`)}`)
     const jsonData = await response.json()
-
-    console.log('jsonData', jsonData)
-
 
     const podcastDetailDTO: PodcastDetailDTO = jsonData.results[0]
 
@@ -50,12 +45,10 @@ export class PodcastHttpRepository implements PodcastRepository {
     const dtoToPodcastEpisodeTransform: DtoToPodcastEpisodeTransform = new DtoToPodcastEpisodeTransform()
     let episodes: PodcastEpisode[] = [];
     const feed = await parser.parseURL(`${CORS_PROXY}${feedUrl}`);
-    console.log('rss-feed', feed)
     feed.items.forEach((episode: PodcastEpisodeDTO) => {
       episodes.push(dtoToPodcastEpisodeTransform.transform(episode));
     });
 
-    console.log('getEpisodes', episodes)
     return episodes;
   }
 }

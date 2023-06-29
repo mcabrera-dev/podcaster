@@ -26,7 +26,7 @@ function PodcastDetailView() {
   }
   )
 
-  const { isLoading, data: podcastEpisodes } = useQuery<PodcastEpisode[]>({
+  const { data: podcastEpisodes } = useQuery<PodcastEpisode[]>({
     queryKey: ['podcastEpisodes', podcastDetail?.feedUrl],
     queryFn: () => getPodcastEpisodesQry.execute(podcastDetail?.feedUrl || ''),
     staleTime: 1000 * 60 * 60 * 24, //caché for 1 day
@@ -37,7 +37,6 @@ function PodcastDetailView() {
 
   const onNavigateEpisode = (selectedEpisode: PodcastEpisode) => {
     stateManager.patch({ selectedEpisode })
-    console.log('stateManager', stateManager.state)
   };
 
 
