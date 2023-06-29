@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
 import { Provider } from "./core/ioc/ioc.react";
 import { container } from "./core/ioc/ioc";
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -19,11 +20,13 @@ const queryClient = new QueryClient()
 
 root.render(
   <React.StrictMode>
-    <Provider container={container}>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </Provider>
+    <BrowserRouter>
+      <Provider container={container}>
+        <QueryClientProvider client={queryClient}>
+          <App />
+        </QueryClientProvider>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
