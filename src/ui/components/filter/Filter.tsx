@@ -1,4 +1,5 @@
 import React from "react";
+import './Filter.css'
 
 
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
 
 const InputField = ({ value, results, name, placeholder, type, onChange }: Props) => (
   <div className="form-group">
-    {results && <label htmlFor="input-field">{results}</label>}
+    {results && <label className="label" htmlFor="input-field">{results}</label>}
     <input
       type={type}
       value={value}
