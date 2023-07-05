@@ -14,9 +14,25 @@ Open [http://localhost:9001](http://localhost:9001) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
+### `npm run test`
 
 Launches the test runner in the interactive.
+
+### `npm run test:watch`
+
+Launches the test runner in watch mode.
+
+### `npm run format`
+
+launch prettier to review all files 
+
+### `npm run lint`
+
+launch lint & review files problems 
+
+### `npm run lint:fix`
+
+launch lint, review files problems & try to fix if is posible
 
 ### `npm run build`
 
