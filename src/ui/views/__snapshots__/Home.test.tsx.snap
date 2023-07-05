@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home render 1`] = `
+<div
+  className="home"
+>
+  <div
+    className="filter-container"
+  >
+    <div
+      className="form-group"
+    >
+      0
+      <input
+        className="form-control"
+        data-testid="filter"
+        name="filter"
+        onChange={[Function]}
+        placeholder="Filter podcasts..."
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="podcast-list-container"
+  />
+</div>
+`;

@@ -25,6 +25,7 @@ const InputField = ({
       </label>
     )}
     <input
+      data-testid="filter"
       type={type}
       value={value}
       name={name}
