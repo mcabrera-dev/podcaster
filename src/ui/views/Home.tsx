@@ -37,8 +37,8 @@ function HomeView() {
     </div>
 
     <div className="podcast-list-container">
-      {data && data.entry.map(e => (
-        <Podcast podcast={e} onNavigate={onNavigatePodcast} />
+      {data && data.entry.map((e, i) => (
+        <Podcast podcast={e} onNavigate={onNavigatePodcast} key={i} />
       ))}
     </div>
 

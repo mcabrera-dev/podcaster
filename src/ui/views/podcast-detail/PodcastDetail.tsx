@@ -45,8 +45,10 @@ function PodcastDetailView() {
       {podcastDetail && <PodcastSumary podcastDetail={{ ...podcastDetail, description: selected?.summary }} />}
       <div className="podcast-chapters-list">
         <Routes>
-          <Route path="/" element={podcastEpisodes && <EpisodeList episodes={podcastEpisodes} onNavigate={onNavigateEpisode}></EpisodeList>} />
-          <Route path="/episode/:chapterId" element={podcastDetail && <DetailsEpisode />} />
+          <Route path="/" element={podcastEpisodes ? <EpisodeList episodes={podcastEpisodes} onNavigate={onNavigateEpisode}></EpisodeList> : <></>}>
+
+          </Route>
+          <Route path="/episode/:chapterId" element={podcastDetail ? <DetailsEpisode /> : <></>} />
         </Routes>
       </div>
     </div>

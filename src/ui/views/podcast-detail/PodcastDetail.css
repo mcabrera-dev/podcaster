@@ -9,6 +9,7 @@
 
 .podcast-chapters-list {
     width: calc(100% - 360px);
+    margin-bottom: 40px;
 }
 
 .player-container {

@@ -56,7 +56,7 @@ const EpisodeList = (props: Props) => {
                             <th>Duration</th>
                         </tr>
                         {props.episodes && props.episodes.map((e, i) => (
-                            <tr className={i % 2 === 0 ? 'odd' : 'even'}>
+                            <tr className={i % 2 === 0 ? 'odd' : 'even'} key={i}>
                                 <td><Link className="table-link" to={{
                                     pathname: `episode/${e.id}`,
                                 }}

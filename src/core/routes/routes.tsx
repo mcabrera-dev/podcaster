@@ -13,11 +13,11 @@ const routes: RouteObject[] = [
     children: [
       { index: true, element: <Home /> },
       {
-        path: "/podcast/:podcastId",
+        path: "podcast/:podcastId/*",
         element: <PodcastDetail />,
         children: [
           {
-            path: "/podcast/:podcastId/episode/:chapterId",
+            path: "episode/:chapterId",
             element: <PodcastDetail />,
           }
         ]
