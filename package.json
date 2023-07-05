@@ -29,7 +29,10 @@
     "eject": "react-scripts eject",
     "dev": "webpack-dev-server  --open --config webpack.dev.ts",
     "build": "webpack --config webpack.prod.ts",
-    "format": "prettier --write 'src/**/*.{ts,css,html,json,js,scss}'"
+    "format": "prettier --write 'src/**/*.{ts,css,html,json,js,scss}'",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+
   },
   "eslintConfig": {
     "extends": [

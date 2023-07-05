@@ -7,8 +7,6 @@ export class ConsoleLogger implements Logger {
   @inject(TYPES.WINDOW)
   private readonly window: any;
 
-  constructor() {}
-
   object<T>(object: T): void {
     this.window.console.dir(object);
   }

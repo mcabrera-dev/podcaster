@@ -1,9 +1,6 @@
 import { injectable } from "inversify";
-import {
-  PodcastDetailDTO,
-  PodcastListDTO,
-} from "../domain/podcast/podcast-dto";
-import { PodcastList, Entry, PodcastDetail } from "../domain/podcast/podcast";
+import { PodcastDetailDTO } from "../domain/podcast/podcast-dto";
+import { PodcastDetail } from "../domain/podcast/podcast";
 import { Transformer } from "../core/types/transformer";
 
 @injectable()

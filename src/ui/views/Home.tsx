@@ -11,40 +11,58 @@ import { StateManager } from "../../application/state-manager";
 import React from "react";
 
 function HomeView() {
-
-  const getPodcastListQry = useInjection<GetPodcastListQry>(TYPES.GET_ALL_PODCAST_QRY)
-  const stateManager = useInjection<StateManager>(TYPES.STATE_MANAGER)
-  const [filter, setFilter] = useState('');
+  const getPodcastListQry = useInjection<GetPodcastListQry>(
+    TYPES.GET_ALL_PODCAST_QRY
+  );
+  const stateManager = useInjection<StateManager>(TYPES.STATE_MANAGER);
+  const [filter, setFilter] = useState("");
   const { data } = useQuery<PodcastList>({
-    queryKey: ['podcastList'],
+    queryKey: ["podcastList"],
     queryFn: () => getPodcastListQry.execute(),
     staleTime: 1000 * 60 * 60 * 24, //caché for 1 day
-    select: (podcastList) => { return { ...podcastList, entry: podcastList.entry.filter((entry) => entry.name.toLowerCase().includes(filter) || entry.author.toLowerCase().includes(filter)) } },
-  })
+    select: (podcastList) => {
+      return {
+        ...podcastList,
+        entry: podcastList.entry.filter(
+          (entry) =>
+            entry.name.toLowerCase().includes(filter) ||
+            entry.author.toLowerCase().includes(filter)
+        ),
+      };
+    },
+  });
 
   const onChangeFilter = (e: any) => {
-    setFilter(e.target.value)
+    setFilter(e.target.value);
   };
 
   const onNavigatePodcast = (selected: Entry) => {
-    stateManager.patch({ selected })
+    stateManager.patch({ selected });
   };
 
+  return (
+    <div className="home">
+      <div className="filter-container">
+        <InputField
+          value={filter}
+          results={data?.entry.length || 0}
+          name={"filter"}
+          placeholder={"Filter podcasts..."}
+          type={"text"}
+          onChange={onChangeFilter}
+        ></InputField>
+      </div>
 
-  return <div className="home">
-    <div className="filter-container">
-      <InputField value={filter} results={data?.entry.length || 0} name={"filter"} placeholder={"Filter podcasts..."} type={"text"} onChange={onChangeFilter}></InputField>
+      <div className="podcast-list-container">
+        {data &&
+          data.entry.map((e, i) => (
+            <Podcast podcast={e} onNavigate={onNavigatePodcast} key={i} />
+          ))}
+      </div>
     </div>
-
-    <div className="podcast-list-container">
-      {data && data.entry.map((e, i) => (
-        <Podcast podcast={e} onNavigate={onNavigatePodcast} key={i} />
-      ))}
-    </div>
-
-  </div>;
+  );
 }
 
-HomeView.whyDidYouRender = true
+HomeView.whyDidYouRender = true;
 
 export default HomeView;

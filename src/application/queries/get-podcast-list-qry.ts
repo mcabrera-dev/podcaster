@@ -15,10 +15,6 @@ export class GetPodcastListQry extends Query<Promise<PodcastList>> {
   @inject(TYPES.PODCAST_REPOSITORY)
   private podcastRepository!: PodcastRepository;
 
-  constructor() {
-    super();
-  }
-
   async internalExecute(): Promise<PodcastList> {
     const podcastList = await this.podcastRepository.getAll();
     this.stateManager.patch({ podcastList });

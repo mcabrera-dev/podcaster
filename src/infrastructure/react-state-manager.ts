@@ -1,5 +1,3 @@
-import React from "react";
-
 import { State } from "../application/state";
 import { Observer } from "../domain/observer/observer";
 import { StateManager } from "../application/state-manager";

@@ -15,8 +15,6 @@ export class Runner {
 
   private chain?: Link;
 
-  constructor() {}
-
   run(useCase: UseCase<unknown, unknown>, param: unknown): unknown {
     this.chain = this.executorLink.setNext(this.loggerLink);
     const context = { useCase, result: undefined, param };

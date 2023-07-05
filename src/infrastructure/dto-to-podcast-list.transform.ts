@@ -14,7 +14,7 @@ export class DtoToPodcastListTransform
     if (dto) {
       podcastList.author = dto.author.name.label;
 
-      dto.entry.map((entry) => {
+      dto.entry.forEach((entry) => {
         entries.push({
           id: entry.id.attributes["im:id"],
           img: entry["im:image"][2].label,

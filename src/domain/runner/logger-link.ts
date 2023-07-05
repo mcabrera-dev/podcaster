@@ -10,10 +10,6 @@ export class LoggerLink extends BaseLink {
   @inject(TYPES.LOGGER)
   private readonly logger!: Logger;
 
-  constructor() {
-    super();
-  }
-
   next(context: Context): void {
     if (!env.production) {
       this.logger.group(context.useCase.constructor.name);
