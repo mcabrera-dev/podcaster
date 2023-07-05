@@ -5,25 +5,21 @@ import { Query } from "../../domain/use-cases/query";
 import type { StateManager } from "../state-manager";
 import { PodcastEpisode } from "../../domain/podcast/podcast";
 
-
-
-
 @injectable()
-export class GetPodcastEpisodesQry extends Query<Promise<PodcastEpisode[]>, string> {
-
+export class GetPodcastEpisodesQry extends Query<
+  Promise<PodcastEpisode[]>,
+  string
+> {
   @inject(TYPES.PODCAST_REPOSITORY)
-  private podcastRepository!: PodcastRepository
+  private podcastRepository!: PodcastRepository;
 
-
-
-  constructor(
-  ) {
+  constructor() {
     super();
   }
 
   async internalExecute(id: string): Promise<PodcastEpisode[]> {
-    const podcastEpisodeList = await this.podcastRepository.getEpisodes(id)
-    return podcastEpisodeList
+    const podcastEpisodeList = await this.podcastRepository.getEpisodes(id);
+    return podcastEpisodeList;
     //return this.stateManager.state.feed!;
   }
 }

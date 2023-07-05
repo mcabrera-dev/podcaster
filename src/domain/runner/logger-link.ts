@@ -8,7 +8,7 @@ import { env } from "process";
 @injectable()
 export class LoggerLink extends BaseLink {
   @inject(TYPES.LOGGER)
-  private readonly logger!: Logger
+  private readonly logger!: Logger;
 
   constructor() {
     super();

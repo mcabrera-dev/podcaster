@@ -1,10 +1,10 @@
-import { Link } from './link'
+import { Link } from "./link";
 import { injectable } from "inversify";
 
 @injectable()
 export class EmptyLink implements Link {
   setNext(): Link {
-    return this
+    return this;
   }
   next(): void {}
 }

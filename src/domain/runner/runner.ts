@@ -7,20 +7,15 @@ import { Link } from "./link";
 
 @injectable()
 export class Runner {
-  
-
   @inject(TYPES.EXECUTOR_LINK)
-  private readonly executorLink!: ExecutorLink
-  
+  private readonly executorLink!: ExecutorLink;
+
   @inject(TYPES.LOGGER_LINK)
-  private readonly loggerLink!: LoggerLink
+  private readonly loggerLink!: LoggerLink;
 
-  private chain?: Link
+  private chain?: Link;
 
-  constructor(
-  ) {
-   
-  }
+  constructor() {}
 
   run(useCase: UseCase<unknown, unknown>, param: unknown): unknown {
     this.chain = this.executorLink.setNext(this.loggerLink);

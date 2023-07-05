@@ -9,22 +9,20 @@ decorate(injectable(), Query);
 
 @injectable()
 export class GetPodcastListQry extends Query<Promise<PodcastList>> {
-
   @inject(TYPES.STATE_MANAGER)
-  private stateManager!: StateManager
+  private stateManager!: StateManager;
 
   @inject(TYPES.PODCAST_REPOSITORY)
-  private podcastRepository!: PodcastRepository
+  private podcastRepository!: PodcastRepository;
 
-  constructor(
-  ) {
+  constructor() {
     super();
   }
 
   async internalExecute(): Promise<PodcastList> {
-    const podcastList = await this.podcastRepository.getAll()
-    this.stateManager.patch({ podcastList })
+    const podcastList = await this.podcastRepository.getAll();
+    this.stateManager.patch({ podcastList });
 
-    return podcastList
+    return podcastList;
   }
 }

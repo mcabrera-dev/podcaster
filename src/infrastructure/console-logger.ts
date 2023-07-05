@@ -4,9 +4,8 @@ import { Logger } from "../domain/use-cases/logger";
 
 @injectable()
 export class ConsoleLogger implements Logger {
-
   @inject(TYPES.WINDOW)
-  private readonly window: any
+  private readonly window: any;
 
   constructor() {}
 

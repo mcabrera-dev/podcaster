@@ -1,72 +1,69 @@
 .image-cropper {
-    top: 55px;
-    width: 100px;
-    height: 100px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    box-shadow: var(--pc-box-shadow)
+  top: 55px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: var(--pc-box-shadow);
 }
 
 img {
-    display: inline;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
 }
 
 .card-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .card-content {
-    width: 100%;
-    min-height: 130px;
-    display: flex;
-    flex-direction: column-reverse;
-    box-shadow: var(--pc-box-shadow);
-    border-radius: 4px;
-    gap: 12px;
-    background-color: var(--pc-background-0);
-
+  width: 100%;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column-reverse;
+  box-shadow: var(--pc-box-shadow);
+  border-radius: 4px;
+  gap: 12px;
+  background-color: var(--pc-background-0);
 }
 
 .card-header,
 .card-meta {
-
-    text-align: center;
+  text-align: center;
 }
 
 .card-meta {
-    padding-bottom: 10px;
-    text-transform: capitalize;
-    color: #7a7f86;
-    text-decoration: none
+  padding-bottom: 10px;
+  text-transform: capitalize;
+  color: #7a7f86;
+  text-decoration: none;
 }
 
 .card-header {
-    text-transform: capitalize;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-    max-height: 16px;
-    overflow: hidden;
-    text-overflow: clip;
-    padding: 0 8px;
-    word-break: break-all;
+  text-transform: capitalize;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  max-height: 16px;
+  overflow: hidden;
+  text-overflow: clip;
+  padding: 0 8px;
+  word-break: break-all;
 }
 
 .card {
-    text-decoration: none;
-    transition: all ease-in 0.25s;
+  text-decoration: none;
+  transition: all ease-in 0.25s;
 }
 
 .card:hover {
-    transform: translate(0, -40px) scale(1.1);
-    z-index: 99;
-
+  transform: translate(0, -40px) scale(1.1);
+  z-index: 99;
 }

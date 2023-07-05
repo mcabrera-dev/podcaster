@@ -1,1 +1,1 @@
-declare module 'rss-parser'
+declare module "rss-parser";

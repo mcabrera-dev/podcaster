@@ -1,6 +1,6 @@
-import { Context } from './context'
+import { Context } from "./context";
 
 export interface Link {
-  setNext(link: Link): Link
-  next(context: Context): void
+  setNext(link: Link): Link;
+  next(context: Context): void;
 }
