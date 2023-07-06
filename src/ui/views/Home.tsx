@@ -25,8 +25,8 @@ function HomeView() {
         ...podcastList,
         entry: podcastList.entry.filter(
           (entry) =>
-            entry.name.toLowerCase().includes(filter) ||
-            entry.author.toLowerCase().includes(filter)
+            entry.name.toLowerCase().includes(filter.toLowerCase()) ||
+            entry.author.toLowerCase().includes(filter.toLowerCase())
         ),
       };
     },

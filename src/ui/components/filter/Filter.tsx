@@ -20,7 +20,7 @@ const InputField = ({
 }: Props) => (
   <div className="form-group">
     {results && (
-      <label className="label" htmlFor="input-field">
+      <label className="label" htmlFor="input-field" data-testid="label-filter">
         {results}
       </label>
     )}

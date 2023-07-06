@@ -11,7 +11,11 @@ const PodcastSumary = (props: Props) => {
   const { podcastDetail } = props;
 
   return (
-    <Link className="link" to={`/podcast/${podcastDetail.id}`}>
+    <Link
+      className="link"
+      to={`/podcast/${podcastDetail.id}`}
+      data-testid={`podcast-summary-${podcastDetail.id}`}
+    >
       <div className="podcast-summary">
         <div className="artwork">
           <img

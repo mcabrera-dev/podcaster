@@ -40,7 +40,7 @@ const dateParser = (dateString: string) => {
 
 const EpisodeList = (props: Props) => {
   return (
-    <div className="table-container">
+    <div className="table-container" data-testid={`podcast-episode-list`}>
       <div className="table-title">Episodes: {props.episodes.length}</div>
       <div className="table-wrapper">
         <table className="table">
@@ -58,6 +58,7 @@ const EpisodeList = (props: Props) => {
                       className="table-link"
                       to={`episode/${e.id}`}
                       onClick={() => props.onNavigate(e)}
+                      data-testid={`podcast-episode-${i}`}
                     >
                       {e.title}
                     </Link>

@@ -32,7 +32,10 @@
     "build": "webpack --config webpack.prod.ts",
     "format": "prettier --write 'src/**/*.{ts,css,html,json,js,scss,tsx}'",
     "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix"
+    "lint:fix": "eslint src/ --fix",
+    "cypress:open": "cypress open --e2e --browser chrome",
+    "test:e2e": "cypress run --browser chrome --headless",
+    "test:e2e-console": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +71,7 @@
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.8.1",
+    "cypress": "^12.16.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "html-webpack-plugin": "^5.5.3",

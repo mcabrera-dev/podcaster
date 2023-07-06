@@ -15,6 +15,7 @@ const Podcast = (props: Props) => (
       pathname: `/podcast/${props.podcast.id}`,
     }}
     onClick={() => props.onNavigate(props.podcast)}
+    data-testid={`podcast-${props.podcast.id}`}
   >
     <div className="card-wrapper">
       <div className="image-cropper">

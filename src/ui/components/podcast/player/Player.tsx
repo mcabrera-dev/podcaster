@@ -17,7 +17,7 @@ const DetailsEpisode = () => {
       />
       <div className="ui divider" />
       <div className="ui column centered grid padded">
-        <audio className="player" controls>
+        <audio className="player" controls data-testid={`podcast-player`}>
           <source src={selectedEpisode?.url} type="audio/ogg" />
           <source src={selectedEpisode?.url} type="audio/mpeg" />
           <source src={selectedEpisode?.url} type="audio/mp3" />
