@@ -56,7 +56,7 @@ const EpisodeList = (props: Props) => {
                   <td>
                     <Link
                       className="table-link"
-                      to={`episode/${e.id}`}
+                      to={`episode/${i}`}
                       onClick={() => props.onNavigate(e)}
                       data-testid={`podcast-episode-${i}`}
                     >
