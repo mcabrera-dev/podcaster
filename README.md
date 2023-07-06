@@ -18,6 +18,14 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive.
 
+### `npm run cypress:open`
+
+open cypress interface.
+
+### `npm run test:e2e`
+
+Launches the e2e test runner in headless mode.
+
 ### `npm run test:watch`
 
 Launches the test runner in watch mode.
