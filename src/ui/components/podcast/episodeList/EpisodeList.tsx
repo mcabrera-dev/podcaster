@@ -56,9 +56,7 @@ const EpisodeList = (props: Props) => {
                   <td>
                     <Link
                       className="table-link"
-                      to={{
-                        pathname: `episode/${e.id}`,
-                      }}
+                      to={`episode/${e.id}`}
                       onClick={() => props.onNavigate(e)}
                     >
                       {e.title}
